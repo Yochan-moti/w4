@@ -7,7 +7,7 @@ function randomValueFromArray(array){
   return array[random];
 }
 
-const storyText = '外は 華氏45度だったので、:insertx:は散歩に出かけた。彼は :inserty:のところに着くと、しばらくの間、食べ続け、そして :insertz:になりました。:inserty:はハッピーだね。';
+const storyText = '外は 華氏45度だったので、:insertx:は散歩に出かけた。彼は :inserty:のところに着くと、しばらくの間、食べ続け、そして :insertz:になりました。 :inserty: はマーベラスだね。';
 const insertX = ['ハローキティ', 'スヌーピー', 'エルモ'];
 const insertY = ['マクドナルド', 'モス', 'ケンタッキーフライドチキン'];
 const insertZ = ['お腹いっぱい', '歩行困難', '幸せ'];
@@ -25,17 +25,18 @@ function result() {
   newStory = newStory.replace(':insertx:',xItem);
   newStory = newStory.replace(':inserty:',yItem);
   newStory = newStory.replace(':insertz:',zItem);
+  newStory = newStory.replace(':inserty:',yItem);
 
   if (customName.value !== '') {
     const name = customName.value;
     newStory = newStory.replace('Bob', name);
   }
 
-  if (document.getElementById("uk").checked) {
+  if (document.getElementById("jp").checked) {
 //     const weight = `${Math.round(300*0.0714286)} stone`;
 //     const temperature =  `${Math.round((94-32) * 5 / 9)} centigrade`;
     newStory = newStory.replace('華氏45度', '気温10度');
-    newStory = newStory.replace('ハッピー', '最高');
+    newStory = newStory.replace('マーベラス', '最高');
   }
 
   story.textContent = newStory;
